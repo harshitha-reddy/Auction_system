@@ -1,0 +1,90 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>online_auction_system</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        .main-banner {
+           background-color: beige;
+            background-size: cover;
+            min-height: 500px;
+            padding: 1px 0 0 0;
+        }
+
+        .banner h1 {
+            color: #fff;
+            font-size: 45px;
+        }
+
+        .banner p {
+            color: #fff;
+            margin: 10px 0 30px 0;
+            font-size: 18px;
+        }
+
+    .row.content {height: 150px}
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: beige;
+      height: 100%;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
+    </div>
+<div class="container">
+    <div class="container">
+    <h1 align="center"><i><b>WELCOME TO AUCTION SYSTEM</b></i></h1>
+        <p align="center"><b><i>Place to sell or buy products</i></b></p>
+        </div>
+
+</div>
+</div>
+    </nav>
+<div class="main-banner banner text-center">
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4><a href="{% url 'index' %}">Home</a></h4><br>
+      <h4><a href="{% url 'index' %}">About</a></h4><br>
+      <h4><a href="{% url 'index' %}">Contact</a></h4><br>
+    </div>
+    <div class="col-sm-7 text-left">
+
+        <img src="{% static "images/watch.jpg" %}" style="border:0px;margin:0px;float:left;width:210px;height:230px" />
+        <img src="{% static "images/bag.jpeg" %}" style="border:0px;margin:0px;clear:both;width:210px;height:230px" />
+        <img src="{% static "images/shoe.jpg" %}" style="border:0px;margin:0px;clear:both;width:210px;height:230px" />
+        <img src="{% static "images/iphone1.jpg" %}" style="border:0px;margin:0px;clear:both;width:300px;height:230px" />
+        <img src="{% static "images/nikon.jpg" %}" style="border:0px;margin:0px;clear:both;width:300px;height:230px" />
+
+
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                   <h7> <b>Signin</b></h7></a>
+      </div>
+      <div class="well">
+        <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <b>SignUp</b></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

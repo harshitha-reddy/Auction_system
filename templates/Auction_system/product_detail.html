@@ -1,0 +1,94 @@
+{% extends 'auction_system/product_detail_base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <style>
+        .image {
+            max-width: 280px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .blank_row {
+            height: 10px !important; /* Overwrite any previous rules */
+            background-color: #FFFFFF;
+        }
+
+        .image {
+            max-width: 280px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        .error {
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block nav %}
+       <a href="{% url 'delete_product' product_list.id %}" style="padding-left: 20px"><span
+                class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="image">
+            <img src="/Auction_system{{ product_list.image.url }}" class="img-responsive img-thumbnail">
+            <br><br>
+            <table>
+                <tr>
+                    <td><b>Name : </b></td>
+                    <td><b>{{ product_list.name }}</b></td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><b>Category : </b></td>
+                    <td><b>{{ product_list.category }}</b></td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><b>Price : </b></td>
+                    <td><b>{{ product_list.price }}</b></td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td><b>Bid_date : </b></td>
+                    <td><b>{{ product_list.purdate }}</b></td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+            {% if request.user.id  !=  seller.username_id %}
+                <div class="error">
+                    {% if error %}
+                        {{ error }}
+                         {% endif %}
+                </div>
+
+                        <div class="form-group">
+                        <input type="text" class="form-control" id="bid_amount" name="bid_amount"
+                               placeholder="Enter your bid amount" required><br>
+                            </div>
+                            <a href="{% url 'product_view' %}"><button type="button" class="btn btn-primary">Bid
+                            </button></a>
+
+
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

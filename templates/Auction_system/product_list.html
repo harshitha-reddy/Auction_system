@@ -1,0 +1,68 @@
+{% extends 'auction_system/productlist_base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <style>
+        .profilePicture .img-responsive:hover {
+            opacity: 0.2;
+        }
+
+        .profilePicture img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: 0px;
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .profilePicture .text {
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            text-align: center;
+            visibility: hidden;
+            width: 100px;
+            height: 30px;
+        }
+        .profilePicture:hover .text {
+            visibility:visible;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <br><br>
+    <div class="container">
+    <table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>Product id</th>
+      <th>Image</th>
+      <th>Category</th>
+      <th>Name</th>
+        <th>price</th>
+        <th>Bid end date</th>
+    </tr>
+  </thead>
+        <div class="container">
+  <tbody>
+    <tr>
+        {% for product in product_list %}
+            <td > {{  product.id }}</td>
+            <td> <div class="profilePicture"> <a href="{% url 'product_detail' product.id %}">
+                        <img src="/Auction_system{{ product.image.url }}" class="img-responsive" alt="Image"></a></div></td>
+
+      <td >{{ product.category }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.purdate }}</td>
+    </tr>
+ {% endfor %}
+  </tbody>
+        </div>
+</table>
+    </div>
+{% endblock %}

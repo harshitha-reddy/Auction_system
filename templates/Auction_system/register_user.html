@@ -1,0 +1,22 @@
+{% extends 'auction_system/login.html' %}
+{% load staticfiles %}
+{% block content %}
+    <form class="form-signin" method="post" action="{% url 'register' %}">{% csrf_token %}
+        <br>
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="1"></td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <button class="btn btn-primary" type="submit" style="background-color: black; color: white">Signup</button>
+        <br>
+    </form>
+{% endblock %}
+

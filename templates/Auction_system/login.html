@@ -1,0 +1,29 @@
+{% extends 'auction_system/login_base.html' %}
+{% load staticfiles %}
+    {% block content %}
+        <form class="form-signin" method="post" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
+            {% if form.errors %}
+                <p style="color: black">Invalid username and password.</p>
+            {% endif %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+                <tr class="blank_row">
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+           <button class="btn btn-primary" type="submit" style="background-color: black; color: white">Sign in</button>
+            <br>
+
+        </form>
+    {% endblock %}
+
