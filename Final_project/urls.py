@@ -20,6 +20,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^user/', include('Auction_system.urls')),
     url(r'^Auction_system/',include('Auction_system.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls'), {"template_name": "Auction_system/login.html"}),
 ]
